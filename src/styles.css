@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--holly-white-color);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --holly-black-color: #333333;
+    --holly-red-color: #FF6F61;
+    --holly-yellow-color: #FFCC00;
+    --holly-blue-color: #00BFFF;
+    --holly-white-color: #FFFFFF;
+}
+
+.logo{
+    color: var(--holly-red-color);
+}
