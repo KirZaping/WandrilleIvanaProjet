@@ -1,0 +1,22 @@
+/* Styles pour le header */
+.navbar {
+    margin-bottom: 20px; /* Espace en bas de la barre de navigation */
+}
+
+.navbar-brand {
+    font-size: 1.5rem; /* Taille de la police pour le nom de l'application */
+    font-weight: bold; /* Mettre en gras le nom de l'application */
+}
+
+.nav-link {
+    color: var(--holly-red-color); /* Utiliser la couleur primaire définie dans styles.css */
+}
+
+.nav-link:hover {
+    color: var(--holly-yellow-color); /* Utiliser la couleur primaire sombre définie dans styles.css */
+}
+
+.nav-item.active .nav-link {
+    font-weight: bold; /* Mettre en gras le lien actif */
+    color: var(--holly-black-color); /* Utiliser la couleur primaire sombre pour le lien actif */
+}
