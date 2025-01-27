@@ -1,6 +1,7 @@
 /* Styles pour le header */
 .navbar {
     margin-bottom: 20px; /* Espace en bas de la barre de navigation */
+    background-color: #f8f9fa; /* Fond gris */
 }
 
 .navbar-brand {
@@ -9,14 +10,19 @@
 }
 
 .nav-link {
-    color: var(--holly-red-color); /* Utiliser la couleur primaire définie dans styles.css */
+    color: var(--holly-red-color); /* Utiliser la couleur définie dans styles.css */
 }
 
 .nav-link:hover {
-    color: var(--holly-yellow-color); /* Utiliser la couleur primaire sombre définie dans styles.css */
+    color: var(--holly-yellow-color); /* Couleur des liens au survol */
 }
 
 .nav-item.active .nav-link {
     font-weight: bold; /* Mettre en gras le lien actif */
-    color: var(--holly-black-color); /* Utiliser la couleur primaire sombre pour le lien actif */
+    color: var(--holly-black-color); /* Couleur du lien actif */
+}
+
+/* Alignement des liens à droite */
+.navbar-nav {
+    margin-left: auto; /* Pousse les éléments de navigation vers la droite */
 }
