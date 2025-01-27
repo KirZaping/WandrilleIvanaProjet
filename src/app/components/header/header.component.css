@@ -26,3 +26,7 @@
 .navbar-nav {
     margin-left: auto; /* Pousse les éléments de navigation vers la droite */
 }
+
+.navbar-custom-background {
+    background-color: #063b71; /* Fond gris avec priorité */
+}
