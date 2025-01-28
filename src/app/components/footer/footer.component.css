@@ -1,0 +1,16 @@
+footer {
+    background-color: #343a40;
+  }
+    
+  footer a:hover {
+    text-decoration: underline;
+  }
+   
+  footer i {
+    font-size: 1.2rem;
+  }
+    
+  .mail-open, .tel-open{
+    text-decoration: none;
+    color: #FFF;
+  }
