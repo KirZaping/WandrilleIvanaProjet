@@ -7,6 +7,6 @@ bootstrapApplication(AppComponent)
   .catch(err => console.error(err));
   
   bootstrapApplication(AppComponent, {
-    providers: [provideRouter(routes)] // ✅ Register routes here
+    providers: [provideRouter(routes)] 
   }).catch(err => console.error(err));
   
