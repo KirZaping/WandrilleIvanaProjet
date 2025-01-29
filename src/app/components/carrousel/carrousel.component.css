@@ -8,7 +8,7 @@
 
 .presentation-img{
     height: 30vh;
-    object-fit: cover; /* Zoom sur l'image pour qu'elle remplisse complètement son conteneur */
+    object-fit: cover;
 }
 
 .carousel-control-prev{

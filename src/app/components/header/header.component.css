@@ -1,33 +1,31 @@
-/* Styles pour le header */
 .navbar {
-    margin-bottom: 20px; /* Espace en bas de la barre de navigation */
-    background-color: #f8f9fa; /* Fond gris */
+    margin-bottom: 20px;
+    background-color: var(--holly-white-color);
 }
 
 .navbar-brand {
-    font-size: 1.5rem; /* Taille de la police pour le nom de l'application */
-    font-weight: bold; /* Mettre en gras le nom de l'application */
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .nav-link {
-    color: var(--holly-red-color); /* Utiliser la couleur définie dans styles.css */
+    color: var(--holly-red-color);
 }
 
 .nav-link:hover {
-    color: var(--holly-yellow-color); /* Couleur des liens au survol */
+    color: var(--holly-yellow-color);
 }
 
 .nav-item.active .nav-link {
-    font-weight: bold; /* Mettre en gras le lien actif */
-    color: var(--holly-black-color); /* Couleur du lien actif */
+    font-weight: bold;
+    color: var(--holly-black-color);
 }
 
-/* Alignement des liens à droite */
 .navbar-nav {
-    margin-left: auto; /* Pousse les éléments de navigation vers la droite */
+    margin-left: auto;
 }
 
 .navbar-custom-background {
-    background-color: var(--holly-white-color); /* Fond gris avec priorité */
+    background-color: var(--holly-white-color);
     border-bottom: 1px solid var(--holly-red-color);
 }
