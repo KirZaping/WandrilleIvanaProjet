@@ -28,5 +28,6 @@
 }
 
 .navbar-custom-background {
-    background-color: #063b71; /* Fond gris avec priorité */
+    background-color: var(--holly-white-color); /* Fond gris avec priorité */
+    border-bottom: 1px solid var(--holly-red-color);
 }

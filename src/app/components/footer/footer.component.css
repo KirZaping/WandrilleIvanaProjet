@@ -1,16 +1,23 @@
 footer {
-    background-color: #343a40;
-  }
-    
-  footer a:hover {
-    text-decoration: underline;
-  }
-   
-  footer i {
-    font-size: 1.2rem;
-  }
-    
-  .mail-open, .tel-open{
-    text-decoration: none;
-    color: #FFF;
-  }
+  background-color: var(--holly-white-color);
+  color: var(--holly-red-color);
+  border-top: 1px solid var(--holly-red-color);
+}
+  
+footer a:hover {
+  text-decoration: underline;
+}
+  
+footer i {
+  font-size: 1.2rem;
+}
+  
+.mail-open, .tel-open, .link{
+  text-decoration: none;
+  color: var(--holly-red-color);
+}
+
+.link:hover, .mail-open:hover, .tel-open:hover{
+  text-decoration: underline;
+  color: var(--holly-yellow-color);
+}
