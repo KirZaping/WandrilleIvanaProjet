@@ -1,1 +1,14 @@
-<p>hotel-by-location works!</p>
+<div class="hotel-location-container">
+    <h1 class="location-title">Hôtels à Paris</h1>
+    <div class="search-container">
+        <input type="text" placeholder="Entrez un lieu" />
+    </div>
+    <div class="row">
+        <div *ngFor="let hotel of hotels" class="col-md-4 hotel-card">
+            <img [src]="hotel.image" class="hotel-img" [alt]="hotel.name">
+            <h2 class="hotel-name">{{ hotel.name }}</h2>
+            <p class="hotel-description">{{ hotel.description }}</p>
+            <p class="hotel-price">Prix: {{ hotel.price }} €</p>
+        </div>
+    </div>
+</div>
