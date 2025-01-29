@@ -1,0 +1,17 @@
+<div class="hotel-location-container">
+    <h1 class="location-title">📌 {{ locationTitle }}</h1>
+    <div class="search-container">
+        <form (submit)="updateCurrentTown()" class="search-form">
+            <input type="text" name="myInput" class="search-input" (input)="onInputChange($event)" placeholder="Entrez un lieu" />
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </form>
+    </div>
+    <div class="row">
+        <div *ngFor="let hotel of selectedHotels" class="col-md-4 hotel-card">
+            <img [src]="hotel.image" class="hotel-img" [alt]="hotel.name">
+            <h2 class="hotel-name">{{ hotel.name }}</h2>
+            <p class="hotel-description">{{ hotel.description }}</p>
+            <p class="hotel-price">Prix: {{ hotel.price }} €</p>
+        </div>
+    </div>
+</div>

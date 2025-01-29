@@ -15,6 +15,13 @@ html, body {
     --holly-yellow-color: #FFCC00;
     --holly-blue-color: #00BFFF;
     --holly-white-color: #FFFFFF;
+
+    --holly-black-color-transparent: rgba(51, 51, 51, 0.7);
+    --holly-red-color-transparent: rgba(255, 111, 97, 0.7);
+    --holly-yellow-color-transparent: rgba(255, 204, 0, 0.7);
+    --holly-blue-color-transparent: rgba(0, 191, 255, 0.7);
+    --holly-white-color-transparent: rgba(255, 255, 255, 0.7);
+
 }
 
 .logo{
