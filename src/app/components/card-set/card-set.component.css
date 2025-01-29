@@ -1,0 +1,43 @@
+.section-title{
+    color: var(--holly-red-color);
+    margin-top: 10vh;
+}
+
+.card {
+    width: 20vh; /* Largeur de la carte */
+    height: 40vh; /* Hauteur de la carte */
+    margin: 10px; /* Espacement autour de la carte */
+    overflow: hidden; /* Masquez le débordement */
+    position: relative; /* Nécessaire pour le reflet */
+    transition: transform 0.3s, box-shadow 0.3s, transform 0.5s ease; /* Transition pour le mouvement et l'ombre */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Déplace la carte vers le haut */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre portée pour le reflet */
+}
+
+/* Ajout du reflet */
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Positionne le reflet en bas de la carte */
+    left: 0;
+    right: 0;
+    height: 50%; /* Hauteur du reflet */
+    background: rgba(255, 255, 255, 0.5); /* Couleur du reflet */
+    transform: translateY(100%) rotateX(180deg); /* Inverse le reflet */
+    opacity: 0.5; /* Opacité du reflet */
+    pointer-events: none; /* Ignore les événements de souris sur le reflet */
+}
+
+.card-img-top {
+    height: 100%; /* L'image prend toute la hauteur de la carte */
+    object-fit: cover; /* L'image s'adapte à la carte sans déformer */
+}
+
+.slide-out {
+    transform: translateY(-20px); /* Déplace la carte vers le haut */
+    opacity: 0; /* Rendre la carte transparente */
+}
+

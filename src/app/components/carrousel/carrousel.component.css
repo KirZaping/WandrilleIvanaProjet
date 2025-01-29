@@ -1,0 +1,29 @@
+.section-title{
+    color: var(--holly-red-color);
+}
+
+.section-title{
+    margin-top: 10vh;
+}
+
+.presentation-img{
+    height: 30vh;
+    object-fit: cover; /* Zoom sur l'image pour qu'elle remplisse complètement son conteneur */
+}
+
+.carousel-control-prev{
+    background-color: var(--holly-blue-color);
+    height: 30.1vh;
+    width: 10vh;
+}
+
+.carousel-control-next{
+    background-color: var(--holly-blue-color);
+    height: 30.1vh;
+    width: 10vh;
+}
+
+.btn{
+    background-color: var(--holly-blue-color);
+    border-color: var(--holly-blue-color);
+}

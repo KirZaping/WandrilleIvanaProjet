@@ -1,0 +1,45 @@
+<div class="carousel-section">
+  <h1 class="section-title">{{ sectionTitle }}</h1>
+  <div [attr.id]="id" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card">
+          <img src="/images/home/voyages-cover/lake-cover.jpg" class="card-img-top presentation-img" alt="Voyage pas cher 1"/>
+          <div class="card-body">
+            <h5 class="card-title">Voyage pas cher 1</h5>
+            <p class="card-text">Description du voyage pas cher 1.</p>
+            <a href="#!" class="btn btn-primary">Button</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <img src="/images/home/voyages-cover/mountain-cover.jpg" class="card-img-top presentation-img" alt="Voyage pas cher 2"/>
+          <div class="card-body">
+            <h5 class="card-title">Voyage pas cher 2</h5>
+            <p class="card-text">Description du voyage pas cher 2.</p>
+            <a href="#!" class="btn btn-primary btn-custom-color">Button</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <img src="/images/home/voyages-cover/sakura-cover.jpg" class="card-img-top presentation-img" alt="Voyage pas cher 3"/>
+          <div class="card-body">
+            <h5 class="card-title">Voyage pas cher 3</h5>
+            <p class="card-text">Description du voyage pas cher 3.</p>
+            <a href="#!" class="btn btn-primary">Button</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#' + id" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Précédent</span>
+    </button>
+    <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#' + id" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Suivant</span>
+    </button>
+  </div>
+</div>
