@@ -2,3 +2,16 @@
   background-color: var(--holly-white-color);
   height: 100vh;
 }
+
+.section-title{
+  color: var(--holly-red-color);
+}
+
+.section{
+  margin-top: 10vh;
+}
+
+.presentation-img{
+  height: 30vh;
+  object-fit: cover; /* Zoom sur l'image pour qu'elle remplisse complètement son conteneur */
+}
