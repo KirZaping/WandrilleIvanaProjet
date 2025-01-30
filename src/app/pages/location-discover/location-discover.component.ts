@@ -1,5 +1,7 @@
 import { Component, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
     selector: 'app-location-discover',
@@ -15,7 +17,7 @@ export class LocationDiscoverComponent implements AfterViewInit {
     private searchMarker: any = null;
     private cityMarkers: any[] = []; //Store default city markers
 
-    constructor(@Inject(PLATFORM_ID) private platformId: any) {}
+    constructor(@Inject(PLATFORM_ID) private platformId: any, private router: Router) {}
 
     private cities = [
         { name: "Paris", lat: 48.8566, lon: 2.3522, wiki: "https://en.wikipedia.org/wiki/Paris" },
@@ -108,6 +110,15 @@ export class LocationDiscoverComponent implements AfterViewInit {
         this.searchMarker = this.L.marker(latlng, { icon: RedIcon }) // ✅ Use red icon
             .addTo(this.map)
             .bindPopup(`<b>${cityName}</b>`)
+            .on("click", () => {
+                // Navigate to /hotel-by-location with query parameters
+                this.router.navigate(['/hotel-by-location'], {
+                    queryParams: {
+                        town: cityName.toUpperCase(), 
+                        autoSearch: true
+                    }
+                });
+            })
             .openPopup();
     })
     .addTo(this.map);
