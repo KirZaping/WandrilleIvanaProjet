@@ -67,6 +67,25 @@ input[type="text"] {
     margin: 10px 0;
 }
 
+.hotel-description a {
+    color: var(--holly-red-color);
+    text-decoration: none;
+}
+
+.no-hotels-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 10vh;
+    margin-bottom: 30vh;
+}
+
+.hotel-description a:hover {
+    color: var(--holly-yellow-color);
+    text-decoration: underline;
+}
+
 .hotel-price {
     font-size: 1.2em;
     color: var(--holly-red-color);
