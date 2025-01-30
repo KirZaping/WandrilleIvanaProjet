@@ -16,6 +16,7 @@ export async function makeServer() {
       this.get('/hotels', () => {
         return jsonData;
       });
+      this.passthrough('https://nominatim.openstreetmap.org/**');
     }
   });
 
