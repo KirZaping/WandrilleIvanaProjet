@@ -1,17 +1,25 @@
 <div class="hotel-location-container">
     <h1 class="location-title">📌 {{ locationTitle }}</h1>
     <div class="search-container">
-        <form (submit)="updateCurrentTown()" class="search-form">
-            <input type="text" name="myInput" class="search-input" (input)="onInputChange($event)" placeholder="Entrez un lieu" />
-            <button type="submit" class="btn btn-primary">Rechercher</button>
+        <form (submit)="searchCurrentTown($event)" class="search-form">
+            <input type="text" name="town" class="search-input" (input)="onInputChange($event)" placeholder="Entrez un lieu" />
+            <button type="submit" (click)="searchCurrentTown($event)" class="btn btn-primary">Rechercher</button>
         </form>
     </div>
     <div class="row">
-        <div *ngFor="let hotel of selectedHotels" class="col-md-4 hotel-card">
-            <img [src]="hotel.image" class="hotel-img" [alt]="hotel.name">
-            <h2 class="hotel-name">{{ hotel.name }}</h2>
-            <p class="hotel-description">{{ hotel.description }}</p>
-            <p class="hotel-price">Prix: {{ hotel.price }} €</p>
+        <div *ngIf="selectedHotels.length > 0; else noHotels" class="row">
+            <div *ngFor="let hotel of selectedHotels" class="col-md-4 hotel-card" (click)="goToHotelDetails(hotel.id)">
+                <img [src]="hotel.image" class="hotel-img" [alt]="hotel.name">
+                <h2 class="hotel-name">{{ hotel.name }}</h2>
+                <p class="hotel-stars">{{ '⭐'.repeat(hotel.stars) }}</p>
+                <p class="hotel-description"> <a href="{{ hotel.description }}">Site internet</a></p>
+                <p class="hotel-price">Prix: {{ hotel.price }} €</p>
+            </div>
         </div>
+        <ng-template #noHotels>
+            <div class="no-hotels-container">
+                <h3>🏨 Aucun hôtel trouvé</h3>
+            </div>
+        </ng-template>
     </div>
 </div>
