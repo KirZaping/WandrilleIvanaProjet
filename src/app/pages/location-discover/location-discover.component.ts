@@ -46,7 +46,14 @@ export class LocationDiscoverComponent implements AfterViewInit {
       }).addTo(this.map);
 
       const geocoderModule = await import('leaflet-control-geocoder');
-      const geocoder = new (geocoderModule as any).Geocoder.Nominatim(); 
+      const geocoder = new (geocoderModule as any).Geocoder.Nominatim({
+        geocodingQueryParams: {
+            lang: 'fr',            
+            countrycodes: 'fr',     
+            'accept-language': 'fr', 
+            addressdetails: 1       
+        }
+    });
 
       const searchControl = (this.L.Control as any).geocoder({
           geocoder,
