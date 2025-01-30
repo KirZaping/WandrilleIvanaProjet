@@ -12,18 +12,28 @@
 }
 
 .carousel-control-prev{
-    background-color: var(--holly-blue-color);
+    background-color: transparent;
     height: 30.1vh;
     width: 10vh;
 }
 
 .carousel-control-next{
-    background-color: var(--holly-blue-color);
+    background-color: transparent;
     height: 30.1vh;
     width: 10vh;
 }
 
 .btn{
-    background-color: var(--holly-blue-color);
-    border-color: var(--holly-blue-color);
+    background-color: var(--holly-red-color);
+    border-color: var(--holly-red-color);
+}
+
+.carousel-section{
+    max-width: 70%;
+}
+
+.carousel-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
