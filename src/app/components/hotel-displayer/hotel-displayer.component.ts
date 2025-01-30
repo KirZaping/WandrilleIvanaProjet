@@ -4,15 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
-interface Hotel {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  stars: number;
-}
+import { Hotel } from '../../interfaces/hotel'
 
 @Component({
   selector: 'app-hotel-displayer',
@@ -34,6 +26,9 @@ export class HotelDisplayerComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.currentTown = params['town'] || '';
       this.updateLocationTitle();
+      if (params['autoSearch'] === 'true') {
+        this.fetchHotels(this.currentTown);
+      }
     });
   }
 
