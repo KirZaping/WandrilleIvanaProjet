@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 interface Hotel {
+  id: number;
   name: string;
   description: string;
   price: number;
@@ -77,12 +78,17 @@ export class HotelDisplayerComponent implements OnInit {
       });
   }
 
+  goToHotelDetails(id: number) {
+    console.log('[>>>> HOTEL-DISPLAYER] 🏨 Going to hotel details with id:', id, this.hotels[id]);
+  }
+
   selectHotels(town: string) {
     let filteredHotels: Hotel[] = [];
     console.log('[>>>> HOTEL-DISPLAYER] 🏨 Fetching hotels at ' + town + '...');
     for (let i = 0; i < this.hotels.length; i++) {
         if (this.hotels[i].COMMUNE === town) {
             let tmpHotel: Hotel = {
+                id: i,
                 description: this.hotels[i].SITE_INTERNET,
                 price: this.hotels[i].PRIX,
                 image: "/images/hotel-by-location/hotel/hotel-london.jpg",

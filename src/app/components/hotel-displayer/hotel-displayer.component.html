@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <div *ngIf="selectedHotels.length > 0; else noHotels" class="row">
-            <div *ngFor="let hotel of selectedHotels" class="col-md-4 hotel-card">
+            <div *ngFor="let hotel of selectedHotels" class="col-md-4 hotel-card" (click)="goToHotelDetails(hotel.id)">
                 <img [src]="hotel.image" class="hotel-img" [alt]="hotel.name">
                 <h2 class="hotel-name">{{ hotel.name }}</h2>
                 <p class="hotel-stars">{{ '⭐'.repeat(hotel.stars) }}</p>
