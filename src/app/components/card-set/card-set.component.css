@@ -4,7 +4,7 @@
 }
 
 .card {
-    width: 20vh;
+    width: 25vh;
     height: 40vh;
     margin: 10px;
     overflow: hidden;
@@ -14,7 +14,7 @@
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 4px 8px var(--holly-red-color-transparent);
 }
 
 .card::after {
@@ -38,4 +38,14 @@
 .slide-out {
     transform: translateY(-20px);
     opacity: 0;
+}
+
+.section{
+    max-width: 70%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
