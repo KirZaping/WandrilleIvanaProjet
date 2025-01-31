@@ -37,3 +37,12 @@
     flex-direction: column;
     align-items: center;
 }
+
+.carousel-inner{
+    transition: transform 0.3s, box-shadow 0.3s, transform 0.5s ease;
+}
+
+.carousel-inner:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px var(--holly-red-color-transparent);
+}

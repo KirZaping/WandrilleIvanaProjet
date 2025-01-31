@@ -1,5 +1,6 @@
 <div class="container">
-  <app-carrousel [sectionTitle]="'Les destinations en vogues'" [id]="'vogues'" [voyages]="voyagesVogues"></app-carrousel>
-  <app-carrousel [sectionTitle]="'Les destinations à tous prix'" [id]="'prix'" [voyages]="voyagesPrix"></app-carrousel>
-  <app-card-set [title]="'Photos de nos clients'"></app-card-set>
+  <app-dynamic-title [title]="startTitle" [words]="words"></app-dynamic-title>
+  <app-carrousel [sectionTitle]="'⛵ Les destinations en vogues'" [id]="'vogues'" [voyages]="voyagesVogues"></app-carrousel>
+  <app-carrousel [sectionTitle]="'💸 Les destinations à tous prix'" [id]="'prix'" [voyages]="voyagesPrix"></app-carrousel>
+  <app-card-set [title]="'📷 Photos de nos clients'"></app-card-set>
 </div>

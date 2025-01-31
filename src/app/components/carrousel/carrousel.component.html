@@ -1,26 +1,26 @@
 <div class="carousel-container">
-<div class="carousel-section">
-  <h1 class="section-title">{{ sectionTitle }}</h1>
-  <div [attr.id]="id" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div *ngFor="let voyage of voyages; let isFirst = first" class="carousel-item" [class.active]="isFirst">
-        <div class="card">
-          <img [src]="voyage.image" class="card-img-top presentation-img" [alt]="voyage.title"/>
-          <div class="card-body">
-            <h5 class="card-title">{{ voyage.title }}</h5>
-            <p class="card-text">{{ voyage.description }}</p>
-            <a [routerLink]="['/hotel-by-location']" [queryParams]="{ town: voyage.title.toUpperCase(), autoSearch: true }" class="btn btn-primary">Voir la destination</a>
+  <div class="carousel-section">
+    <h1 class="section-title">{{ sectionTitle }}</h1>
+    <div [attr.id]="id" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div *ngFor="let voyage of voyages; let isFirst = first" class="carousel-item" [class.active]="isFirst">
+          <div class="card">
+            <img [src]="voyage.image" class="card-img-top presentation-img" [alt]="voyage.title"/>
+            <div class="card-body">
+              <h5 class="card-title">{{ voyage.title }}</h5>
+              <p class="card-text">{{ voyage.description }}</p>
+              <a [routerLink]="['/hotel-by-location']" [queryParams]="{ town: voyage.title.toUpperCase(), autoSearch: true }" class="btn btn-primary">Voir la destination</a>
+            </div>
           </div>
         </div>
       </div>
+      <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#' + id" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Précédent</span>
+      </button>
+      <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#' + id" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Suivant</span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#' + id" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Précédent</span>
-    </button>
-    <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#' + id" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Suivant</span>
-    </button>
-  </div>
 </div>
