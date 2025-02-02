@@ -1,0 +1,11 @@
+<div class="summary-container">
+    <h1 class="summary-main-title">Résumé de vos futures vacances</h1>
+    
+    <app-simple-card [image]="town_image" [main_title]="town_title" [card_title]="town_title_card"></app-simple-card>
+    <app-simple-card [image]="hotel.image" [main_title]="hotel_title" [card_title]="hotel.name" [stars]="hotel.stars" [site_web]="hotel.description" [price]="hotel.price"></app-simple-card>
+    <app-simple-card [image]="activity_image" [main_title]="activity_title" [card_title]="activity_title_card" [site_web]="hotel.description" [description]="activity_description" [price]="hotel.price"></app-simple-card>
+
+    <div class="summary-button-container">
+        <button class="btn btn-primary">Je part en vacances !</button>
+    </div>
+</div>

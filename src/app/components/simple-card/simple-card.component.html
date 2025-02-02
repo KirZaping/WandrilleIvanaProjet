@@ -1,0 +1,15 @@
+<div class="main-container">
+    <h1 class="main-title">{{ main_title }}</h1>
+    <div class="row">
+        <div class="col-md-4 hotel-card">
+            <div class="card">
+                <img [src]="image" class="img">
+                <h2 class="title">{{ card_title }}</h2>
+                <p class="description"></p>
+                <p class="price">Prix: {{ price }} €</p>
+                <p class="stars">{{ '⭐'.repeat(stars) }}</p>
+                <p class="site_web"> <a href="{{ site_web }}">Site internet</a></p>
+            </div>
+        </div>
+    </div>
+</div>

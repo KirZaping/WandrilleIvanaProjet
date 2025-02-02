@@ -5,11 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Hotel } from '../../interfaces/hotel'
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-hotel-displayer',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule],
+  imports: [CommonModule, HttpClientModule, FormsModule, RouterModule],
   templateUrl: './hotel-displayer.component.html',
   styleUrls: ['./hotel-displayer.component.css']
 })
