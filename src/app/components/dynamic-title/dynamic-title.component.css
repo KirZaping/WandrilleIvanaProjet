@@ -36,3 +36,9 @@
     from, to { border-color: transparent; }
     50% { border-color: var(--holly-red-color); }
 }
+
+@media (max-width: 1200px) {
+    .dynamic-title-container {
+        display: none;
+    }
+}
