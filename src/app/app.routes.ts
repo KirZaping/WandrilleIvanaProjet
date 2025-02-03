@@ -4,6 +4,7 @@ import { HotelByLocationComponent } from './pages/hotel-by-location/hotel-by-loc
 import { HotelDescriptionComponent } from './pages/hotel-description/hotel-description.component';
 import { LocationDescriptionComponent } from './pages/location-description/location-description.component';
 import { LocationDiscoverComponent } from './pages/location-discover/location-discover.component';
+import { SummaryComponent } from './pages/summary/summary.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,5 +13,6 @@ export const routes: Routes = [
   { path: 'hotel-description', component: HotelDescriptionComponent },
   { path: 'location-description', component: LocationDescriptionComponent },
   { path: 'location-discover', component: LocationDiscoverComponent },
+  { path: 'summary', component: SummaryComponent },
   { path: '**', redirectTo: '' }
 ];
