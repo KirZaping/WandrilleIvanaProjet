@@ -65,7 +65,7 @@ export class LocationDiscoverComponent implements AfterViewInit {
         });
 
         const RedIcon = this.L.icon({
-            iconUrl: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png', 
+            iconUrl: 'images/location-discover/red_pin.png',
             shadowUrl: undefined,
             iconSize: [25, 41],
             iconAnchor: [12, 41],
@@ -74,7 +74,6 @@ export class LocationDiscoverComponent implements AfterViewInit {
         });
 
         
-
         const searchControl = (this.L.Control as any).geocoder({
             geocoder,
             defaultMarkGeocode: false,
@@ -104,6 +103,11 @@ export class LocationDiscoverComponent implements AfterViewInit {
             this.searchMarker = this.L.marker(latlng, { icon: RedIcon }) 
                 .addTo(this.map)
                 .bindPopup(`<b>${cityName}</b>`)
+                .bindTooltip(`<b>${cityName}</b>`, {  
+                    permanent: false,
+                    direction: "top",
+                    opacity: 0.8
+                }) 
                 .on("click", () => { //redirection to hotel search by city
                     this.router.navigate(['/hotel-by-location'], {
                         queryParams: {
@@ -112,12 +116,11 @@ export class LocationDiscoverComponent implements AfterViewInit {
                         }
                     });
                 })
-                .openPopup();
         })
         .addTo(this.map);
 
         const DefaultIcon = this.L.icon({
-            iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+            iconUrl: 'images/location-discover/blue_pin.png',
             shadowUrl: undefined,
             iconSize: [25, 41],
             iconAnchor: [12, 41],
