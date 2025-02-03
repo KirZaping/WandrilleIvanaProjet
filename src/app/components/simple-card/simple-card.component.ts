@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-simple-card',
-  imports: [],
+  imports: [CommonModule], 
   templateUrl: './simple-card.component.html',
-  styleUrl: './simple-card.component.css'
+  styleUrls: ['./simple-card.component.css']
 })
 export class SimpleCardComponent {
     @Input() main_title: string = '';

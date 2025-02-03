@@ -14,11 +14,11 @@ export class SummaryComponent implements OnInit {
   currentTown: string = 'helsinki';
   hotel: Hotel = {
     id: 0,
-    name: 'hotel super',
-    stars: 3,
-    description: 'hotel super',
+    name: '',
+    stars: 0,
+    description: '',
     price: 100,
-    image: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
+    image: '/images/hotel-by-location/hotel/hotel-london.jpg'
   };
   activities: string[] = [];
   image: string = '/images/hotel-by-location/hotel/hotel-london.jpg';
@@ -40,7 +40,7 @@ export class SummaryComponent implements OnInit {
 
   town_description: string = 'Marseille est une ville de France située dans le sud du pays. Elle est connue pour ses plages, ses musées et ses quartiers animés.';
   hotel_description: string = 'L\'hôtel de Londres est un hôtel de luxe situé à Londres. Il est connu pour ses chambres spacieuses et ses services de haute qualité.';
-  activity_description: string = 'Les activités de Marseille sont nombreuses. Vous pouvez faire de la plongée, de la randonnée, du shopping et bien plus encore.';
+  activity_description: string = 'Les activités de ' + this.town_title_card + ' sont nombreuses. Vous pouvez faire de la plongée, de la randonnée, du shopping et bien plus encore.';
 
   constructor(private route: ActivatedRoute) {}
 
@@ -67,6 +67,8 @@ export class SummaryComponent implements OnInit {
         this.hotel.stars = data[id].CLASSEMENT;
         this.hotel.id = id;
         this.town_title_card = data[id].COMMUNE;
+        this.activity_description = 'Les activités de ' + this.town_title_card + ' sont nombreuses. Vous pouvez faire de la plongée, de la randonnée, du shopping et bien plus encore.';
+
         console.log('[>>>> SUMMARY] 🏨 Fetching hotel details with id:', id, this.hotel);
       })
       .catch(error => {

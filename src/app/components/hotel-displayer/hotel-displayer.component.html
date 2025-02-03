@@ -6,13 +6,23 @@
             <button type="submit" (click)="searchCurrentTown($event)" class="btn btn-primary">Rechercher</button>
         </form>
     </div>
+
+    <!-- Afficher le spinner pendant le chargement -->
+    <div *ngIf="isLoading" class="spinner-container">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Chargement...</span>
+        </div>
+    </div>
+
     <div class="row">
         <div *ngIf="selectedHotels.length > 0; else noHotels" class="row">
             <div *ngFor="let hotel of selectedHotels" class="col-md-4 hotel-card" [routerLink]="['/summary']" [queryParams]="{ hotel: hotel.id }" (click)="goToHotelDetails(hotel.id)">
                 <img [src]="hotel.image" class="hotel-img" [alt]="hotel.name">
                 <h2 class="hotel-name">{{ hotel.name }}</h2>
                 <p class="hotel-stars">{{ '⭐'.repeat(hotel.stars) }}</p>
-                <p class="hotel-description"> <a href="{{ hotel.description }}">Site internet</a></p>
+                <p class="hotel-description">
+                    <a href="{{ hotel.description }}" (click)="onLinkClick($event)">Site internet</a>
+                </p>
                 <p class="hotel-price">Prix: {{ hotel.price }} €</p>
             </div>
         </div>

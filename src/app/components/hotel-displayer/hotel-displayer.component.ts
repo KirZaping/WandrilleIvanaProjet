@@ -21,6 +21,8 @@ export class HotelDisplayerComponent implements OnInit {
   public searchLocation: string = '';
   public selectedHotels: Hotel[] = [];
   public hotels: any[] = [];
+  public isLoading: boolean = false;
+
   constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -56,6 +58,7 @@ export class HotelDisplayerComponent implements OnInit {
   }
 
   fetchHotels(town: string) {
+    this.isLoading = true;
     console.log('[>>>> HOTEL-DISPLAYER] 🏨 Fetching hotels ...');
     fetch('/api/hotels')
       .then(response => {
@@ -71,6 +74,9 @@ export class HotelDisplayerComponent implements OnInit {
       })
       .catch(error => {
         console.error('[>>>> HOTEL-DISPLAYER] Erreur lors de la récupération des hôtels:', error);
+      })
+      .finally(() => {
+        this.isLoading = false;
       });
   }
 
@@ -100,5 +106,9 @@ export class HotelDisplayerComponent implements OnInit {
 
   showMoreHotels() {
     console.log('[>>>> HOTEL-DISPLAYER] 🏨 Showing more hotels...');
+  }
+
+  onLinkClick(event: MouseEvent) {
+    event.stopPropagation();
   }
 }
