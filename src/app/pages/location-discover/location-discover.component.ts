@@ -15,7 +15,7 @@ export class LocationDiscoverComponent implements AfterViewInit {
     private map!: any;
     private L: any;
     private searchMarker: any = null;
-    private cityMarkers: any[] = []; //Store default city markers
+    private cityMarkers: any[] = []; 
 
     constructor(@Inject(PLATFORM_ID) private platformId: any, private router: Router) {}
 
@@ -32,9 +32,9 @@ export class LocationDiscoverComponent implements AfterViewInit {
         { name: "Le Mans", lat: 48.0061, lon: 0.1996, wiki: "https://en.wikipedia.org/wiki/Le_Mans" }
     ];
 
-    async ngAfterViewInit(): Promise<void> {
+    public async ngAfterViewInit(): Promise<void> {
         if (isPlatformBrowser(this.platformId) && typeof window !== 'undefined') {
-            this.L = await import('leaflet'); // Leaflet is only loaded in the browser
+            this.L = await import('leaflet'); 
             await this.initMap();
         }
     }
@@ -57,15 +57,15 @@ export class LocationDiscoverComponent implements AfterViewInit {
                 'accept-language': 'fr',
                 addressdetails: 1,
                 format: 'json',
-                limit: 1, // Fetch only one city
+                limit: 1, 
                 namedetails: 1,
                 extratags: 1,
-                type: 'city'  // Ensures only cities are returned
+                type: 'city' 
             }
         });
 
         const RedIcon = this.L.icon({
-            iconUrl: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png', //  Red marker icon
+            iconUrl: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png', 
             shadowUrl: undefined,
             iconSize: [25, 41],
             iconAnchor: [12, 41],
@@ -75,53 +75,46 @@ export class LocationDiscoverComponent implements AfterViewInit {
 
         
 
-    const searchControl = (this.L.Control as any).geocoder({
-        geocoder,
-        defaultMarkGeocode: false,
-        position: 'topright',
-        errorMessage: "",
-    })
-    .on("markgeocode", (event: any) => {
-        console.log("Geocoder Response:", event);  //  Debugging
+        const searchControl = (this.L.Control as any).geocoder({
+            geocoder,
+            defaultMarkGeocode: false,
+            position: 'topright',
+            errorMessage: "",
+        })
+        .on("markgeocode", (event: any) => {
+            console.log("Geocoder Response:", event);  
 
-        if (!event || !event.geocode || !event.geocode.center) {
-            console.error(" No valid geocode result found!");
-            return;
-        }
+            if (!event || !event.geocode || !event.geocode.center) {
+                console.error(" No valid geocode result found!");
+                return;
+            }
 
-        //  Extract the city name
-        const cityName = event.geocode.name ? event.geocode.name.split(",")[0].trim() : "Unknown";
+            const cityName = event.geocode.name ? event.geocode.name.split(",")[0].trim() : "Unknown";
 
+            const latlng = event.geocode.center;
+            
+            this.cityMarkers.forEach(marker => this.map.removeLayer(marker));
 
-        const latlng = event.geocode.center;
+            this.map.setView(latlng, 10);
 
-        // Hide all default city markers when searching
-        this.cityMarkers.forEach(marker => this.map.removeLayer(marker));
+            if (this.searchMarker) {
+                this.map.removeLayer(this.searchMarker);
+            }
 
-        // Zoom into the selected city
-        this.map.setView(latlng, 10);
-
-        //  Remove previous marker if it exists
-        if (this.searchMarker) {
-            this.map.removeLayer(this.searchMarker);
-        }
-
-        // Add a new red marker for the selected city
-        this.searchMarker = this.L.marker(latlng, { icon: RedIcon }) // ✅ Use red icon
-            .addTo(this.map)
-            .bindPopup(`<b>${cityName}</b>`)
-            .on("click", () => {
-                // Navigate to /hotel-by-location with query parameters
-                this.router.navigate(['/hotel-by-location'], {
-                    queryParams: {
-                        town: cityName.toUpperCase(), 
-                        autoSearch: true
-                    }
-                });
-            })
-            .openPopup();
-    })
-    .addTo(this.map);
+            this.searchMarker = this.L.marker(latlng, { icon: RedIcon }) 
+                .addTo(this.map)
+                .bindPopup(`<b>${cityName}</b>`)
+                .on("click", () => { //redirection to hotel search by city
+                    this.router.navigate(['/hotel-by-location'], {
+                        queryParams: {
+                            town: cityName.toUpperCase(), 
+                            autoSearch: true
+                        }
+                    });
+                })
+                .openPopup();
+        })
+        .addTo(this.map);
 
         const DefaultIcon = this.L.icon({
             iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
@@ -132,7 +125,6 @@ export class LocationDiscoverComponent implements AfterViewInit {
             shadowSize: [41, 41]
         });
 
-        // Store markers so we can hide them later
         this.cities.forEach(city => {
             const marker = this.L.marker([city.lat, city.lon], { icon: DefaultIcon })
                 .addTo(this.map)
@@ -141,12 +133,12 @@ export class LocationDiscoverComponent implements AfterViewInit {
                     permanent: false,
                     direction: "top",
                     opacity: 0.8
-                })
-                .on("click", () => {
+                }) 
+                .on("click", () => { // redirection to wikipedia page of the city selected 
                     window.open(city.wiki, "_blank");
                 });
 
-            this.cityMarkers.push(marker); // Save marker for later removal
+            this.cityMarkers.push(marker); 
         });
     }
 }
