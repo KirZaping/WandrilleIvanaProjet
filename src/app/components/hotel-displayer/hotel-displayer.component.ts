@@ -15,12 +15,12 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./hotel-displayer.component.css']
 })
 export class HotelDisplayerComponent implements OnInit {
-  currentTown: string = '';
-  valeur_courante: string = '';
-  locationTitle: string = 'hôtel à ' + this.currentTown;
-  searchLocation: string = '';
-  selectedHotels: Hotel[] = [];
-  hotels: any[] = [];
+  public currentTown: string = '';
+  public valeur_courante: string = '';
+  public locationTitle: string = 'hôtel à ' + this.currentTown;
+  public searchLocation: string = '';
+  public selectedHotels: Hotel[] = [];
+  public hotels: any[] = [];
   constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit() {

@@ -12,8 +12,8 @@ import { Voyage } from '../../interfaces/voyage';
   styleUrl: './carrousel.component.css'
 })
 export class CarrouselComponent {
-  @Input() sectionTitle: string = '';
-  @Input() id: string = '';
-  @Input() voyages: Voyage[] = [];
+  @Input() public sectionTitle: string = '';
+  @Input() public id: string = '';
+  @Input() public voyages: Voyage[] = [];
 
 }

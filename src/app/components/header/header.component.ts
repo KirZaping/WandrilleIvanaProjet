@@ -9,7 +9,7 @@ import { Router, RouterModule } from '@angular/router';
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-    route: string;
+    public route: string;
 
     constructor(private router: Router) {
         this.route = this.router.url;
