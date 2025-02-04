@@ -2,8 +2,40 @@
     <h1 class="summary-main-title">Résumé de vos futures vacances</h1>
     
     <app-simple-card [image]="town_image" [main_title]="town_title" [card_title]="town_title_card"></app-simple-card>
-    <app-simple-card [image]="hotel.image" [main_title]="hotel_title" [card_title]="hotel.name" [stars]="hotel.stars" [site_web]="hotel.description" [price]="hotel.price"></app-simple-card>
-    <app-simple-card [image]="activity_image" [main_title]="activity_title" [card_title]="activity_title_card" [description]="activity_description"></app-simple-card>
+    <app-simple-card *ngIf="hotelIsLoaded" [image]="hotel.image" [main_title]="hotel_title" [card_title]="hotel.name" [stars]="hotel.stars" [site_web]="hotel.description" [price]="hotel.price"></app-simple-card>
+    
+    
+    <div class="carousel-container">
+        <h1 class="main-title">Les activités à faire</h1>
+        <div class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div *ngFor="let activity of activities_list; let isFirst = first" class="carousel-item" [class.active]="isFirst">
+                    <div class="row">
+                        <div class="col-md-4 hotel-card">
+                            <div class="card">
+                                <img [src]="activity_image" class="img" *ngIf="activity_image !== ''">
+                                <h3>{{activity.Titre}}</h3>
+                                <p>{{ activity.Description}}</p>
+                                <p>{{ activity.Adresse }}</p>
+                                <p>{{ activity.horaires }}</p>
+                                <a href="{{ activity.lienURL }}">Site web de l'évènement</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target=".carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target=".carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </button>
+        </div>
+    </div>
+
+
 
     <div class="summary-button-container">
         <button class="btn btn-primary">Je part en vacances !</button>
