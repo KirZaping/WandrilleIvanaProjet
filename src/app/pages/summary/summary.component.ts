@@ -47,7 +47,8 @@ export class SummaryComponent implements OnInit {
 
   public activityIsLoaded: boolean = false;
   public hotelIsLoaded: boolean = false;
-
+  public isLoading: boolean = false;
+  public noData: boolean = false;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -59,6 +60,8 @@ export class SummaryComponent implements OnInit {
   }
 
   public fetchActivities(town: string){
+    this.isLoading = true;
+    this.noData = false;
     fetch('/api/activities')
       .then(response => {
         if (!response.ok) {
@@ -71,12 +74,16 @@ export class SummaryComponent implements OnInit {
           if(element.Ville.toUpperCase() == town){
             this.activities_list.push(element);
           }
-        }
-      );
-      this.activityIsLoaded = true;
+        });
       })
       .catch(error => {
         console.error('[>>>> SUMMARY] Erreur lors de la récupération des détails de l\'hôtel:', error);
+      })
+      .finally(() => {
+        this.isLoading = false;
+        if(this.activities_list.length() == 0){
+          this.noData = true;
+        }
       });
   }
 
