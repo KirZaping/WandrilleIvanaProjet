@@ -17,6 +17,13 @@
     box-shadow: 0 4px 8px var(--holly-red-color-transparent);
 }
 
+.card:active {
+    transform: scale(2);
+    box-shadow: 0 8px 16px var(--holly-red-color-transparent);
+    transition: transform 0.3s, box-shadow 0.3s, transform 0.5s ease;
+    z-index: 1000;
+}
+
 .card::after {
     content: '';
     position: absolute;
@@ -48,4 +55,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.enlarged-image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Assurez-vous que cela soit au-dessus des autres éléments */
+}
+
+.enlarged-image {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
 }
