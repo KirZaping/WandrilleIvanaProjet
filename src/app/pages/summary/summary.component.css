@@ -23,3 +23,39 @@
     background-color: var(--holly-red-color);
     border-color: var(--holly-red-color);
 }
+
+.main-container {
+    margin-top: 5vh;
+}
+
+.main-title {
+    color: var(--holly-red-color);
+}
+
+.img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card {
+    width: 70vh;
+    height: 100%;
+    transition: transform 0.3s, box-shadow 0.3s, transform 0.5s ease-in-out;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px var(--holly-red-color-transparent);
+}
+
+.carousel-container{
+    margin-top: 5vh;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Ajustez la hauteur selon vos besoins */
+}

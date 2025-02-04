@@ -81,7 +81,7 @@ export class LocationDiscoverComponent implements AfterViewInit {
             errorMessage: "",
         })
         .on("markgeocode", (event: any) => {
-            console.log("Geocoder Response:", event);  
+            //console.log("Geocoder Response:", event);  
 
             if (!event || !event.geocode || !event.geocode.center) {
                 console.error(" No valid geocode result found!");

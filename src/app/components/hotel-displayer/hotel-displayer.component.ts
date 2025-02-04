@@ -43,7 +43,7 @@ export class HotelDisplayerComponent implements OnInit {
 
   updateCurrentTown() {
     this.currentTown = this.valeur_courante.toUpperCase(); 
-    console.log('[>>>> HOTEL-DISPLAYER] Current town updated to:', this.currentTown);
+    //console.log('[>>>> HOTEL-DISPLAYER] Current town updated to:', this.currentTown);
     this.updateLocationTitle();
   }
 
@@ -59,7 +59,7 @@ export class HotelDisplayerComponent implements OnInit {
 
   fetchHotels(town: string) {
     this.isLoading = true;
-    console.log('[>>>> HOTEL-DISPLAYER] 🏨 Fetching hotels ...');
+    //console.log('[>>>> HOTEL-DISPLAYER] 🏨 Fetching hotels ...');
     fetch('/api/hotels')
       .then(response => {
         if (!response.ok) {
@@ -69,7 +69,7 @@ export class HotelDisplayerComponent implements OnInit {
       })
       .then(data => {
         this.hotels = data;
-        console.log('[>>>> HOTEL-DISPLAYER (all)] Données des hôtels reçues de l\'API MirageJS :', this.hotels);
+        //console.log('[>>>> HOTEL-DISPLAYER (all)] Données des hôtels reçues de l\'API MirageJS :', this.hotels);
         this.selectHotels(this.currentTown);
       })
       .catch(error => {
@@ -81,12 +81,12 @@ export class HotelDisplayerComponent implements OnInit {
   }
 
   goToHotelDetails(id: number) {
-    console.log('[>>>> HOTEL-DISPLAYER] 🏨 Going to hotel details with id:', id, this.hotels[id]);
+    ////console.log('[>>>> HOTEL-DISPLAYER] 🏨 Going to hotel details with id:', id, this.hotels[id]);
   }
 
   selectHotels(town: string) {
     let filteredHotels: Hotel[] = [];
-    console.log('[>>>> HOTEL-DISPLAYER] 🏨 Fetching hotels at ' + town + '...');
+    //console.log('[>>>> HOTEL-DISPLAYER] 🏨 Fetching hotels at ' + town + '...');
     for (let i = 0; i < this.hotels.length; i++) {
         if (this.hotels[i].COMMUNE === town) {
             let tmpHotel: Hotel = {
@@ -100,12 +100,12 @@ export class HotelDisplayerComponent implements OnInit {
             filteredHotels.push(tmpHotel);
         }
     }
-    console.log('[>>>> HOTEL-DISPLAYER] 🏨 Fetching hotels at ' + town + ' is done');
+    //console.log('[>>>> HOTEL-DISPLAYER] 🏨 Fetching hotels at ' + town + ' is done');
     this.selectedHotels = filteredHotels;
   }
 
   showMoreHotels() {
-    console.log('[>>>> HOTEL-DISPLAYER] 🏨 Showing more hotels...');
+    //console.log('[>>>> HOTEL-DISPLAYER] 🏨 Showing more hotels...');
   }
 
   onLinkClick(event: MouseEvent) {
